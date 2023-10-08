@@ -7,6 +7,7 @@ class BookHandler {
 
   getBooks = async (req, res) => {
     try {
+      console.log("keisni");
       const result = await this.bookService.getBooks();
       if (result.statusCode != 200) {
         return res.status(result.statusCode).json({ message: result.message });

@@ -18,6 +18,10 @@ class BorrowerService {
       return { message: "error", statusCode: 500 };
     }
 
+    if (userInfo.data == null) {
+      return { message: "user not found", statusCode: 404 };
+    }
+
     if (userInfo.data.currentBorrow >= userInfo.data.maxAllowedBorrow) {
       return {
         message: `user only can borrow maximum ${userInfo.data.maxAllowedBorrow} books`,

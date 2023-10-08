@@ -13,5 +13,5 @@ exports.checkApiKey = async (req, res, next) => {
     return res.status(401).json({ message: "apikey headers not valid" });
   }
 
-  if (req.headers.ApiKey) next();
+  next();
 };
