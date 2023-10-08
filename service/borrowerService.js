@@ -5,8 +5,8 @@ class BorrowerService {
     this.userConnector = userConnector;
     this.kafkaBroker = kafkaBroker;
   }
-  getBorrowers = async () => {
-    const data = await this.bookRepo.findAll();
+  getBorrowedBook = async (id) => {
+    const data = await this.borrowerRepo.findAll(id);
     return { message: "success", data: data, statusCode: 200 };
   };
 

@@ -1,8 +1,8 @@
 const { borrower } = require("../models/models");
 
 class BorrowRepo {
-  findAll = async () => {
-    const result = await borrower.find();
+  findAll = async (id) => {
+    const result = await borrower.find({ userId: id });
     return result;
   };
 

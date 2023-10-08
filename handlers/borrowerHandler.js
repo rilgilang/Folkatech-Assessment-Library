@@ -41,6 +41,19 @@ class BorrowerHandler {
       return res.status(500).json({ message: error });
     }
   };
+
+  borrowedBook = async (req, res) => {
+    try {
+      const result = await this.borrowerService.getBorrowedBook(req.params.id);
+      if (result.statusCode != 200) {
+        return res.status(result.statusCode).json({ message: result.message });
+      }
+      return res.status(200).json({ message: "success", data: result.data });
+    } catch (error) {
+      console.log("error --> ", error);
+      return res.status(500).json({ message: error });
+    }
+  };
 }
 
 module.exports = BorrowerHandler;

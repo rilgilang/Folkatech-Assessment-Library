@@ -42,4 +42,6 @@ router.get("/books", checkApiKey, bookHandler.getBooks);
 
 router.post("/borrow", checkApiKey, borrowerHandler.borrowBook);
 
+router.get("/borrow/:id", checkApiKey, borrowerHandler.borrowedBook);
+
 module.exports = router;
