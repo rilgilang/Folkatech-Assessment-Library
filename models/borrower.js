@@ -5,13 +5,11 @@ const borrowerSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      unique: true,
       required: true,
     },
 
     bookId: {
       type: String,
-      unique: true,
       required: true,
     },
   },

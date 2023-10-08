@@ -21,4 +21,4 @@ class BorrowRepo {
   };
 }
 
-module.exports = BookRepo;
+module.exports = BorrowRepo;
