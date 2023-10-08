@@ -11,6 +11,8 @@ const UserConnector = require("./connector/userConnector");
 const { kafkaBootStrap } = require("./bootstrap/kafka");
 const KafkaBroker = require("./boker/kafka");
 
+const { checkApiKey } = require("./middleware/apiKey");
+
 //broker
 const broker = new KafkaBroker(kafkaBootStrap);
 
@@ -34,10 +36,10 @@ const borrowerService = new BorrowerService(
 const bookHandler = new BookHandler(bookService);
 const borrowerHandler = new BorrowerHandler(borrowerService);
 
-router.post("/book/add", bookHandler.createBookHandler);
+router.post("/book/add", checkApiKey, bookHandler.createBookHandler);
 
-router.get("/books", bookHandler.getBooks);
+router.get("/books", checkApiKey, bookHandler.getBooks);
 
-router.post("/borrow", borrowerHandler.borrowBook);
+router.post("/borrow", checkApiKey, borrowerHandler.borrowBook);
 
 module.exports = router;
